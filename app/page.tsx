@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, Download, Linkedin, Database, Terminal, Server, Cpu, Layers, BarChart3, LayoutDashboard, FolderKanban, X, Calculator, Package } from 'lucide-react';
+import { Mail, Download, Linkedin, Database, Terminal, Server, Cpu, Layers, BarChart3, LayoutDashboard, FolderKanban, X, Calculator, Package, Trophy, BrainCircuit, Network, GitBranch } from 'lucide-react';
+// Import du composant NBA
+import NbaPredictor from './components/NbaPredictor';
 
 export default function Portfolio() {
-  // État pour gérer l'image ouverte en grand (Lightbox)
+  // État pour gérer l'image ouverte en grand (Lightbox du Dashboard)
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
@@ -26,7 +28,7 @@ export default function Portfolio() {
             src={selectedImage} 
             alt="Zoom projet" 
             className="max-w-full max-h-[90vh] rounded-lg shadow-2xl"
-            onClick={(e) => e.stopPropagation()} // Empêche la fermeture si on clique sur l'image
+            onClick={(e) => e.stopPropagation()} 
           />
         </div>
       )}
@@ -211,7 +213,7 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* --- BLOCK : PROJECTS (Avec Galerie & Lightbox) --- */}
+        {/* --- BLOCK 5: DASHBOARD PROJECT (Avec PNG et Lightbox) --- */}
         <div id="projects" className="md:col-span-12 bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm mt-2">
             <div className="flex justify-between items-center mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
@@ -221,7 +223,7 @@ export default function Portfolio() {
             
             <div className="grid lg:grid-cols-2 gap-8 items-start">
                 
-                {/* Colonne Gauche : Infos Projet */}
+                {/* Infos Projet Dashboard */}
                 <div className="group bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-indigo-300 transition-all h-full">
                     <div className="flex justify-between items-start mb-4">
                         <div className="p-2 bg-white rounded-lg border border-slate-100 text-indigo-600">
@@ -261,9 +263,8 @@ export default function Portfolio() {
                     </div>
                 </div>
 
-                {/* Colonne Droite : GALERIE D'IMAGES (Cliquables) */}
+                {/* Galerie Images PNG (Cliquables) */}
                 <div className="flex flex-col gap-3">
-                    {/* Image Principale (dash1) */}
                     <div 
                         className="rounded-xl overflow-hidden border border-slate-200 shadow-md group cursor-pointer relative"
                         onClick={() => setSelectedImage('/dash1.png')}
@@ -278,7 +279,6 @@ export default function Portfolio() {
                          />
                     </div>
 
-                    {/* Grille des 3 petites images */}
                     <div className="grid grid-cols-3 gap-3">
                         {['/dash2.png', '/dash3.png', '/dash4.png'].map((src, index) => (
                             <div 
@@ -300,7 +300,75 @@ export default function Portfolio() {
             </div>
         </div>
 
-        {/* --- BLOCK 5: SKILLS --- */}
+        {/* --- BLOCK 6 : NBA PREDICTOR PROJECT --- */}
+        <div className="md:col-span-12 bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm mt-2">
+            <div className="flex justify-between items-center mb-8">
+                <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
+                    <Trophy className="text-indigo-600" /> NBA AI Predictor
+                </h3>
+            </div>
+            
+            <div className="grid lg:grid-cols-2 gap-8 items-start">
+                
+                {/* Colonne Gauche : Présentation Technique */}
+                <div className="h-full flex flex-col justify-center">
+                    <p className="text-slate-600 leading-relaxed text-lg mb-6">
+                        Passionné par la NBA, j'ai développé un algorithme en <strong>Python</strong> pour prédire l'issue des matchs. 
+                        Ce projet complet automatise la récupération de données via <strong>API & Scraping</strong>, le nettoyage et la création de features statistiques avancées (fatigue, efficacité).
+                    </p>
+                    <p className="text-slate-600 leading-relaxed text-lg mb-8">
+                        J'utilise un modèle <strong>XGBoost</strong> pour analyser la forme historique des équipes, 
+                        que je pondère ensuite dynamiquement selon les blessures des joueurs clés en temps réel.
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-4 mb-8">
+                         <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-3">
+                            <BrainCircuit className="text-indigo-500" />
+                            <div className="text-sm">
+                                <p className="font-bold text-slate-800">Machine Learning</p>
+                                <p className="text-slate-500">XGBoost & Scikit-Learn</p>
+                            </div>
+                         </div>
+                         <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-3">
+                            <Network className="text-emerald-500" />
+                            <div className="text-sm">
+                                <p className="font-bold text-slate-800">Live Data</p>
+                                <p className="text-slate-500">API & Web Scraping</p>
+                            </div>
+                         </div>
+                         <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-3">
+                            <Server className="text-orange-500" />
+                            <div className="text-sm">
+                                <p className="font-bold text-slate-800">Backend API</p>
+                                <p className="text-slate-500">FastAPI (Python)</p>
+                            </div>
+                         </div>
+                         <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-3">
+                            <GitBranch className="text-blue-500" />
+                            <div className="text-sm">
+                                <p className="font-bold text-slate-800">CI/CD</p>
+                                <p className="text-slate-500">Déployé sur Render</p>
+                            </div>
+                         </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                        <span className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-xs font-bold border border-indigo-100">Python 3.10</span>
+                        <span className="px-3 py-1 bg-slate-50 text-slate-700 rounded-full text-xs font-bold border border-slate-200">XGBoost</span>
+                        <span className="px-3 py-1 bg-slate-50 text-slate-700 rounded-full text-xs font-bold border border-slate-200">Pandas</span>
+                        <span className="px-3 py-1 bg-slate-50 text-slate-700 rounded-full text-xs font-bold border border-slate-200">FastAPI</span>
+                    </div>
+                </div>
+
+                {/* Colonne Droite : L'Outil Interactif */}
+                <div>
+                     <NbaPredictor />
+                </div>
+
+            </div>
+        </div>
+
+        {/* --- BLOCK 7: SKILLS --- */}
         <div className="md:col-span-12 bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm mt-2">
             <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
             <Database className="text-indigo-600" /> Compétences Data & Développement
@@ -330,7 +398,7 @@ export default function Portfolio() {
       </main>
 
       <footer className="max-w-7xl mx-auto px-6 mt-16 pb-8 text-center text-slate-400 text-sm">
-        <p>© 2026 Tanguy Carpentier • Candidature Master MIAGE</p>
+        <p>© 2026 Tanguy Carpentier</p>
       </footer>
     </div>
   );
