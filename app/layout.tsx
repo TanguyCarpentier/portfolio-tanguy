@@ -1,38 +1,26 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ['latin'] })
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-// 1. Amélioration du SEO : On met ton nom et une vraie description
 export const metadata: Metadata = {
-  title: "Tanguy Carpentier | Portfolio",
-  description: "Portfolio étudiant en Informatique (BUT Amiens) - Développement Web & Data",
-};
+  title: 'Portfolio | Tanguy Carpentier',
+  description: 'Candidature Master MIAGE - Data & BI',
+  // C'est ici qu'on définit ton favicon.jpg
+  icons: {
+    icon: '/favicon.jpg',
+  },
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    // 2. On passe le site en français pour les navigateurs/Google
-    <html lang="fr">
-      <body
-        // 3. Correction : suppressHydrationWarning est sorti des guillemets du className
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning={true}
-      >
-        {children}
-      </body>
+    <html lang="fr" className="scroll-smooth">
+      <body className={inter.className}>{children}</body>
     </html>
-  );
+  )
 }

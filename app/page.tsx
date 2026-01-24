@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, Download, Linkedin, Database, Terminal, Server, Cpu, Layers, BarChart3, LayoutDashboard, FolderKanban, X, Calculator, Package, Trophy, BrainCircuit, Network, GitBranch } from 'lucide-react';
-// Import du composant NBA
+import { Mail, Download, Linkedin, Database, Terminal, Server, Cpu, Layers, BarChart3, LayoutDashboard, FolderKanban, X, Calculator, Package, Trophy, BrainCircuit, Network, GitBranch, Target, CheckCircle2, Heart, Dumbbell, Gamepad2, BookOpen } from 'lucide-react';
+// Imports des composants interactifs
 import NbaPredictor from './components/NbaPredictor';
+import TennisSniper from './components/TennisSniper';
 
 export default function Portfolio() {
   // État pour gérer l'image ouverte en grand (Lightbox du Dashboard)
@@ -110,9 +111,7 @@ export default function Portfolio() {
              </span>
           </div>
           
-          {/* PHOTO */}
-          {/* <img src="/moi.jpg" alt="Tanguy" className="w-full h-full object-cover object-top z-10 opacity-90 group-hover:opacity-100 transition-opacity" /> */}
-          
+          {/* PHOTO : Assure-toi d'avoir une image nommée Photo.jpg ou moi.jpg dans public/ */}
           <div className="w-48 h-48 bg-slate-700 rounded-full flex items-center justify-center text-slate-400 z-10 mb-12 border-4 border-slate-800 shadow-2xl">
             <span className="text-sm font-mono">Photo.jpg</span>
           </div>
@@ -368,7 +367,52 @@ export default function Portfolio() {
             </div>
         </div>
 
-        {/* --- BLOCK 7: SKILLS --- */}
+{/* --- BLOCK 7 : TENNIS PROJECT (Mis à jour sans badge) --- */}
+        <div className="md:col-span-12 bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm mt-2">
+            <div className="flex justify-between items-center mb-8">
+                <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
+                    <Target className="text-emerald-600" /> Tennis AI Upset Detector
+                </h3>
+            </div>
+            
+            <div className="grid lg:grid-cols-2 gap-8 items-start">
+                
+                {/* Colonne Gauche : Storytelling */}
+                <div className="h-full flex flex-col justify-center">
+                    
+                    <p className="text-slate-600 leading-relaxed text-lg mb-6">
+                        Nouveau dans l'univers du tennis, j'ai été frappé par la fréquence des <strong>"Upsets"</strong> (lorsqu'un outsider bat le favori). 
+                        J'ai voulu automatiser leur détection.
+                    </p>
+                    <p className="text-slate-600 leading-relaxed text-lg mb-8">
+                        J'ai conçu une architecture hybride : un <strong>Scan Automatique</strong> qui récupère les matchs du jour via API et filtre les opportunités, couplé à un <strong>Mode Sniper</strong> manuel pour <strong>analyser les matchs que le scan automatique ne détecte pas</strong>.
+                    </p>
+
+                    <ul className="space-y-3 mb-8">
+                        <li className="flex items-center gap-3 text-slate-600">
+                            <CheckCircle2 size={18} className="text-emerald-500" />
+                            <span>Scan quotidien des cotes (API Bookmakers)</span>
+                        </li>
+                        <li className="flex items-center gap-3 text-slate-600">
+                            <CheckCircle2 size={18} className="text-emerald-500" />
+                            <span>Modèle ELO Mixte pondéré par la surface</span>
+                        </li>
+                        <li className="flex items-center gap-3 text-slate-600">
+                            <CheckCircle2 size={18} className="text-emerald-500" />
+                            <span>Calibration des probabilités (XGBoost)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                {/* Colonne Droite : L'Outil Interactif */}
+                <div className="h-full">
+                    <TennisSniper />
+                </div>
+
+            </div>
+        </div>
+
+{/* --- BLOCK 8: SKILLS --- */}
         <div className="md:col-span-12 bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm mt-2">
             <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
             <Database className="text-indigo-600" /> Compétences Data & Développement
@@ -378,7 +422,17 @@ export default function Portfolio() {
             <div>
                 <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Data Management</h4>
                 <div className="flex flex-wrap gap-2">
-                    {['SQL (Oracle/MySQL)', 'PL/SQL', 'NoSQL (MongoDB)', 'Modélisation (MCD/MLD)', 'Power BI (Notions)'].map(s => (
+                    {/* Liste mise à jour avec les technos NoSQL */}
+                    {[
+                        'SQL (Oracle/MySQL)', 
+                        'PL/SQL', 
+                        'MongoDB', 
+                        'CassandraDB', 
+                        'CouchDB', 
+                        'Neo4j', 
+                        'Modélisation (MCD/MLD)', 
+                        'Power BI (Notions)'
+                    ].map(s => (
                         <span key={s} className="px-3 py-1 bg-indigo-50 border border-indigo-100 rounded-lg text-sm font-bold text-indigo-700 cursor-default">{s}</span>
                     ))}
                 </div>
@@ -387,11 +441,94 @@ export default function Portfolio() {
             <div>
                 <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Développement & Outils</h4>
                 <div className="flex flex-wrap gap-2">
-                    {['Python (Data)', 'C / C++', 'Java', 'Web (HTML/CSS/JS)', 'Git', 'Linux', 'Méthode Agile'].map(s => (
+                    {['Python (Data)', 'Web (HTML/CSS)', 'Git', 'Linux', 'Méthode Agile'].map(s => (
                         <span key={s} className="px-3 py-1 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium text-slate-700 cursor-default">{s}</span>
                     ))}
                 </div>
             </div>
+            </div>
+        </div>
+
+        {/* --- BLOCK 9: HOBBIES & PASSIONS (Mis à jour) --- */}
+        <div className="md:col-span-12 bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm mt-2">
+            <h3 className="text-xl font-bold text-slate-900 mb-8 flex items-center gap-2">
+                <Heart className="text-indigo-600" /> Passions & Hobbies
+            </h3>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+                
+                {/* 1. Musculation */}
+                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col justify-center gap-3 hover:border-indigo-200 transition-colors h-full">
+                    <div className="flex items-center gap-3">
+                        <div className="p-2 bg-white rounded-lg shadow-sm text-indigo-600">
+                            <Dumbbell size={24} />
+                        </div>
+                        <h4 className="font-bold text-slate-900">Musculation</h4>
+                    </div>
+                    <p className="text-sm text-slate-500 leading-relaxed">
+                        Pratique régulière en salle. Une discipline qui m'apprend la constance et le dépassement de soi au quotidien.
+                    </p>
+                </div>
+
+                {/* 2. Jeux Vidéo */}
+                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-indigo-200 transition-colors h-full flex flex-col">
+                    <div className="flex items-center gap-3 mb-4">
+                        <div className="p-2 bg-white rounded-lg shadow-sm text-purple-500">
+                             <Gamepad2 size={24} />
+                        </div>
+                        <h4 className="font-bold text-slate-900">Jeux Vidéo</h4>
+                    </div>
+
+                    <div className="space-y-4 flex-1">
+                        <div>
+                            <p className="text-[10px] uppercase font-bold text-slate-400 mb-2 tracking-wider">Mon Top 3</p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">The Witcher 3</span>
+                                <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">Cyberpunk 2077</span>
+                                <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">Clair Obscur: Expedition 33</span>
+                            </div>
+                        </div>
+                        
+                        <div className="pt-2 border-t border-slate-200/50">
+                            <p className="text-[10px] uppercase font-bold text-slate-400 mb-2 tracking-wider">En ce moment</p>
+                            <span className="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-bold border border-purple-200">
+                                Baldur's Gate 3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* 3. Mangas */}
+                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-indigo-200 transition-colors h-full flex flex-col">
+                    <div className="flex items-center gap-3 mb-4">
+                        <div className="p-2 bg-white rounded-lg shadow-sm text-orange-500">
+                             <BookOpen size={24} />
+                        </div>
+                        <h4 className="font-bold text-slate-900">Mangas</h4>
+                    </div>
+
+                    <div className="space-y-4 flex-1">
+                        <div>
+                            <p className="text-[10px] uppercase font-bold text-slate-400 mb-2 tracking-wider">Mes Favoris</p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">Jujutsu Kaisen</span>
+                                <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">Hunter x Hunter</span>
+                                <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">Omniscient Reader's VP</span>
+                            </div>
+                        </div>
+
+                        <div className="pt-2 border-t border-slate-200/50">
+                            <p className="text-[10px] uppercase font-bold text-slate-400 mb-2 tracking-wider">Lecture Hebdo</p>
+                            <div className="flex flex-col gap-1">
+                                <span className="w-fit px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-bold border border-orange-200">
+                                    One Piece
+                                </span>
+                                <span className="text-[10px] text-slate-500 italic">J'attends le chapitre chaque semaine !</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 

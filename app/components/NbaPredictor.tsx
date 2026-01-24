@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Trophy, Activity, AlertCircle, Loader2, PlayCircle } from 'lucide-react';
+import { Trophy, Activity, AlertCircle, Loader2, PlayCircle, Clock } from 'lucide-react';
 
 interface GamePrediction {
   home_team: string;
@@ -15,7 +15,7 @@ export default function NbaPredictor() {
   const [predictions, setPredictions] = useState<GamePrediction[] | null>(null);
   const [error, setError] = useState('');
 
-  // ✅ TON URL API EST MAINTENANT CONFIGURÉE ICI
+  // TON URL API
   const API_URL = "https://nba-api-ew2n.onrender.com/predict"; 
 
   const runPredictions = async () => {
@@ -25,7 +25,7 @@ export default function NbaPredictor() {
 
     try {
       const res = await fetch(API_URL);
-      if (!res.ok) throw new Error("Erreur lors de la connexion à l'IA");
+      if (!res.ok) throw new Error("Erreur");
       const data = await res.json();
       
       if (data.message) {
@@ -34,8 +34,7 @@ export default function NbaPredictor() {
         setPredictions(data.games);
       }
     } catch (err) {
-      // Message d'erreur convivial pour le Free Tier de Render
-      setError("Le serveur de prédiction redémarre (Free tier). Réessaie dans 30 secondes.");
+      setError("Le serveur redémarre. Réessaie dans quelques secondes.");
     } finally {
       setLoading(false);
     }
@@ -58,18 +57,26 @@ export default function NbaPredictor() {
           </p>
         </div>
 
-        <button
-          onClick={runPredictions}
-          disabled={loading}
-          className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all shadow-lg ${
-            loading 
-              ? 'bg-slate-700 text-slate-400 cursor-not-allowed'
-              : 'bg-indigo-600 text-white hover:bg-indigo-500 hover:scale-105 hover:shadow-indigo-500/50'
-          }`}
-        >
-          {loading ? <Loader2 className="animate-spin" /> : <PlayCircle />}
-          {loading ? 'Calcul en cours...' : 'Lancer les Prédictions'}
-        </button>
+        <div className="flex flex-col items-end">
+            <button
+            onClick={runPredictions}
+            disabled={loading}
+            className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all shadow-lg ${
+                loading 
+                ? 'bg-slate-700 text-slate-400 cursor-not-allowed'
+                : 'bg-indigo-600 text-white hover:bg-indigo-500 hover:scale-105 hover:shadow-indigo-500/50'
+            }`}
+            >
+            {loading ? <Loader2 className="animate-spin" /> : <PlayCircle />}
+            {loading ? 'Démarrage Serveur...' : 'Lancer les Prédictions'}
+            </button>
+            
+            {/* Message d'info sur le délai */}
+            <div className="mt-2 flex items-center gap-1.5 text-[10px] text-indigo-300 bg-indigo-500/10 px-2 py-1 rounded border border-indigo-500/20">
+                <Clock size={12} />
+                <span>Premier lancement : ~1 min (Temps de réveil du serveur)</span>
+            </div>
+        </div>
       </div>
 
       {/* Zone de contenu */}
@@ -81,6 +88,14 @@ export default function NbaPredictor() {
             <Trophy size={48} className="mx-auto mb-3 opacity-20" />
             <p>Clique sur le bouton pour récupérer les matchs du jour et lancer l'algorithme.</p>
           </div>
+        )}
+
+        {/* Loading State avec explication */}
+        {loading && (
+             <div className="text-center text-indigo-400 animate-pulse">
+                <p>Connexion à l'API Python...</p>
+                <p className="text-xs text-slate-500 mt-2">Le serveur sort de veille, merci de patienter.</p>
+             </div>
         )}
 
         {/* Erreur */}
