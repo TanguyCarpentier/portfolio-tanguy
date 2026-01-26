@@ -124,7 +124,7 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* --- BLOCK 3: EXPERIENCE --- */}
+{/* --- BLOCK 3: EXPERIENCE (Mis à jour - Leroy Merlin en premier) --- */}
         <div className="md:col-span-7 bg-slate-800 text-white rounded-3xl p-8 md:p-10 flex flex-col justify-between shadow-lg relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-32 bg-indigo-500 rounded-full blur-[100px] opacity-20 group-hover:opacity-30 transition-opacity"></div>
           
@@ -136,45 +136,57 @@ export default function Portfolio() {
           </div>
 
           <div className="space-y-8 relative z-10">
-            {/* Expérience 1: Reboot */}
-            <div className="relative pl-6 border-l-2 border-indigo-500">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                <h3 className="text-xl font-bold">Développeur Web</h3>
-                <span className="text-xs font-mono py-1 px-2 rounded bg-indigo-500/20 text-indigo-300">Jan 2025 - Mar 2025</span>
-              </div>
-              <p className="text-slate-300 font-medium mb-2">Reboot-Services • Stage</p>
-              <ul className="text-sm text-slate-400 leading-relaxed list-disc list-inside space-y-1">
-                <li>Refonte complète du site web</li>
-                <li>Développement d'un CMS sur mesure</li>
-                <li>Optimisation du cycle de vie de la donnée</li>
-              </ul>
-            </div>
             
-            {/* Expérience 2: Leroy Merlin */}
+            {/* 1. Leroy Merlin (Actuel - Mis en premier) */}
             <div className="relative pl-6 border-l-2 border-slate-600 hover:border-indigo-500/50 transition-colors">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
                 <h3 className="text-xl font-bold">Employé Logistique</h3>
-                <span className="text-xs font-mono py-1 px-2 rounded bg-slate-700 text-slate-400">Août 2024 - Présent • 13h/sem</span>
+                <span className="text-xs font-mono py-1 px-2 rounded bg-indigo-500 text-white font-bold">Août 2024 - Présent</span>
               </div>
-              <p className="text-slate-300 font-medium mb-2">Leroy Merlin</p>
+              <p className="text-slate-300 font-medium mb-2">Leroy Merlin • <span className="text-indigo-400 italic text-xs">Job Étudiant</span></p>
               <ul className="text-sm text-slate-400 leading-relaxed list-disc list-inside space-y-1">
-                 <li>Préparation de commande & Délivrance aux clients</li>
-                 <li>Mise en rayon</li>
-                 <li>Cariste (Utilisation de gerbeur et Fenwick)</li>
+                 <li>Travail en parallèle des études (13h/semaine)</li>
+                 <li>Préparation de commande & Relation client</li>
+                 <li>Cariste (CACES)</li>
               </ul>
             </div>
 
-            {/* Expérience 3: Brico Dépôt */}
+            {/* 2. La Grange à Soie */}
+            <div className="relative pl-6 border-l-2 border-indigo-500">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                <h3 className="text-xl font-bold">Développeur Fullstack</h3>
+                <span className="text-xs font-mono py-1 px-2 rounded bg-indigo-500/20 text-indigo-300">Avril 2025</span>
+              </div>
+              <p className="text-slate-300 font-medium mb-2">Association La Grange à Soie</p>
+              <ul className="text-sm text-slate-400 leading-relaxed list-disc list-inside space-y-1">
+                 <li>Conception et déploiement du site officiel</li>
+                 <li><a href="https://lagrangeàsoie.fr" target="_blank" className="text-indigo-400 hover:underline hover:text-indigo-300 transition-colors">Voir le site : lagrangeàsoie.fr</a></li>
+              </ul>
+            </div>
+
+            {/* 3. Reboot Services */}
+            <div className="relative pl-6 border-l-2 border-indigo-500/50 hover:border-indigo-500 transition-colors">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                <h3 className="text-xl font-bold">Développeur Web</h3>
+                <span className="text-xs font-mono py-1 px-2 rounded bg-indigo-500/10 text-indigo-300">Jan 2025 - Mar 2025</span>
+              </div>
+              <p className="text-slate-300 font-medium mb-2">Reboot-Services • Stage</p>
+              <ul className="text-sm text-slate-400 leading-relaxed list-disc list-inside space-y-1">
+                <li>Refonte complète du site web et CMS sur mesure</li>
+                <li>Optimisation du cycle de vie de la donnée</li>
+              </ul>
+            </div>
+
+            {/* 4. Brico Dépôt */}
             <div className="relative pl-6 border-l-2 border-slate-600 hover:border-indigo-500/50 transition-colors">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
                 <h3 className="text-xl font-bold">Vendeur Conseil</h3>
                 <span className="text-xs font-mono py-1 px-2 rounded bg-slate-700 text-slate-400">Nov 2022 - Août 2024</span>
               </div>
-              <p className="text-slate-300 font-medium mb-2">Brico Dépôt</p>
+              <p className="text-slate-300 font-medium mb-2">Brico Dépôt • <span className="text-indigo-400 italic text-xs">Job Étudiant</span></p>
               <ul className="text-sm text-slate-400 leading-relaxed list-disc list-inside space-y-1">
-                 <li>Conseil technique aux clients</li>
-                 <li>Mise en rayon</li>
-                 <li>Gestion du Service Après-Vente (SAV)</li>
+                 <li>Emploi étudiant (Week-ends & Vacances)</li>
+                 <li>Conseil technique & Gestion du SAV</li>
               </ul>
             </div>
           </div>
