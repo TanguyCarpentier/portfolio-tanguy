@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, Download, Linkedin, Database, Terminal, Server, Cpu, Layers, BarChart3, LayoutDashboard, FolderKanban, X, Calculator, Package, Trophy, BrainCircuit, Network, GitBranch, Target, CheckCircle2, Heart, Dumbbell, Gamepad2, BookOpen } from 'lucide-react';
-// Imports des composants interactifs
+import { Mail, Download, Linkedin, Database, Terminal, Server, Cpu, Layers, BarChart3, LayoutDashboard, FolderKanban, X, Calculator, Package, Trophy, BrainCircuit, Network, GitBranch, Target, CheckCircle2, Heart, Dumbbell, Gamepad2, BookOpen, Crown } from 'lucide-react';// Imports des composants interactifs
 import NbaPredictor from './components/NbaPredictor';
 import TennisSniper from './components/TennisSniper';
 
@@ -97,30 +96,30 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* --- BLOCK 2: PHOTO / PROFILE --- */}
-        <div className="md:col-span-4 bg-slate-900 rounded-3xl relative overflow-hidden flex flex-col items-center justify-end min-h-[400px] group border border-slate-800 shadow-xl">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-slate-800 to-slate-900"></div>
-          <div className="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-indigo-900/50 to-transparent"></div>
-          
-          <div className="absolute top-6 right-6 flex flex-col gap-2 z-20">
-             <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-xs font-bold px-3 py-1 rounded-full text-right">
-               21 ans
-             </span>
-             <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-xs font-bold px-3 py-1 rounded-full text-right">
-               Amiens, FR
-             </span>
-          </div>
-          
-          {/* PHOTO : Assure-toi d'avoir une image nommée Photo.jpg ou moi.jpg dans public/ */}
-          <div className="w-48 h-48 bg-slate-700 rounded-full flex items-center justify-center text-slate-400 z-10 mb-12 border-4 border-slate-800 shadow-2xl">
-            <span className="text-sm font-mono">Photo.jpg</span>
-          </div>
+{/* --- BLOCK 2: PHOTO / PROFILE (Version Épurée) --- */}
+        <div className="md:col-span-4 relative rounded-3xl overflow-hidden min-h-[450px] border border-slate-200 shadow-sm group">
+          {/* 1. L'IMAGE en arrière-plan */}
+          <img
+            src="/photo.jpg"
+            alt="Tanguy Carpentier"
+            className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          />
 
-          <div className="absolute bottom-6 left-6 z-20">
-            <p className="text-slate-400 text-xs uppercase tracking-widest font-bold mb-1">Actuel</p>
-            <p className="text-white font-medium flex items-center gap-2">
-                <Cpu size={16} className="text-indigo-400"/> Étudiant BUT Info
-            </p>
+          {/* 2. LES GRADIENTS */}
+          {/* Gradient sombre pour que le texte blanc ressorte bien */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent z-10"></div>
+
+          {/* 3. LE CONTENU (Texte en bas uniquement) */}
+          <div className="relative z-20 h-full flex flex-col justify-end p-8">
+              
+              {/* Zone de texte avec petite animation au survol */}
+              <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                <p className="text-indigo-300 text-xs uppercase tracking-widest font-bold mb-2">Profil</p>
+                <h2 className="text-4xl font-bold text-white mb-2">Tanguy Carpentier</h2>
+                <p className="text-slate-200 font-medium flex items-center gap-2 text-lg">
+                    <Cpu size={20} className="text-indigo-400"/> Étudiant BUT Info
+                </p>
+              </div>
           </div>
         </div>
 
@@ -461,13 +460,13 @@ export default function Portfolio() {
             </div>
         </div>
 
-        {/* --- BLOCK 9: HOBBIES & PASSIONS (Mis à jour) --- */}
+        {/* --- BLOCK 9: HOBBIES & PASSIONS (Mis à jour avec Échecs) --- */}
         <div className="md:col-span-12 bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm mt-2">
             <h3 className="text-xl font-bold text-slate-900 mb-8 flex items-center gap-2">
                 <Heart className="text-indigo-600" /> Passions & Hobbies
             </h3>
             
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
                 
                 {/* 1. Musculation */}
                 <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col justify-center gap-3 hover:border-indigo-200 transition-colors h-full">
@@ -482,7 +481,20 @@ export default function Portfolio() {
                     </p>
                 </div>
 
-                {/* 2. Jeux Vidéo */}
+                {/* 2. Échecs (NOUVEAU) */}
+                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col justify-center gap-3 hover:border-indigo-200 transition-colors h-full">
+                    <div className="flex items-center gap-3">
+                        <div className="p-2 bg-white rounded-lg shadow-sm text-yellow-500">
+                            <Crown size={24} />
+                        </div>
+                        <h4 className="font-bold text-slate-900">Échecs</h4>
+                    </div>
+                    <p className="text-sm text-slate-500 leading-relaxed">
+                        Joueur amateur passionné de stratégie. J'aime l'analyse, l'anticipation et la résolution de problèmes tactiques.
+                    </p>
+                </div>
+
+                {/* 3. Jeux Vidéo */}
                 <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-indigo-200 transition-colors h-full flex flex-col">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="p-2 bg-white rounded-lg shadow-sm text-purple-500">
@@ -497,7 +509,7 @@ export default function Portfolio() {
                             <div className="flex flex-wrap gap-2">
                                 <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">The Witcher 3</span>
                                 <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">Cyberpunk 2077</span>
-                                <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">Clair Obscur: Expedition 33</span>
+                                <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">Clair Obscur: Exp. 33</span>
                             </div>
                         </div>
                         
@@ -510,7 +522,7 @@ export default function Portfolio() {
                     </div>
                 </div>
 
-                {/* 3. Mangas */}
+                {/* 4. Mangas */}
                 <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-indigo-200 transition-colors h-full flex flex-col">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="p-2 bg-white rounded-lg shadow-sm text-orange-500">
@@ -525,7 +537,7 @@ export default function Portfolio() {
                             <div className="flex flex-wrap gap-2">
                                 <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">Jujutsu Kaisen</span>
                                 <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">Hunter x Hunter</span>
-                                <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">Omniscient Reader's VP</span>
+                                <span className="px-2 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-700">Omniscient Reader</span>
                             </div>
                         </div>
 
@@ -535,7 +547,7 @@ export default function Portfolio() {
                                 <span className="w-fit px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-bold border border-orange-200">
                                     One Piece
                                 </span>
-                                <span className="text-[10px] text-slate-500 italic">J'attends le chapitre chaque semaine !</span>
+                                <span className="text-[10px] text-slate-500 italic">À jour chaque semaine !</span>
                             </div>
                         </div>
                     </div>
