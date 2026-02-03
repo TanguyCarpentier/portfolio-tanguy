@@ -64,30 +64,32 @@ export default function Portfolio() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
         
-        {/* --- BLOCK 1: HERO (Intro) --- */}
+        {/* --- BLOCK 1: HERO (Mis à jour : Généraliste) --- */}
         <div className="md:col-span-8 bg-white rounded-3xl p-8 md:p-12 flex flex-col justify-center border border-slate-200 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-50"></div>
           
           <div className="relative z-10">
+            {/* Badge générique */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-wide mb-6 border border-indigo-100">
               <span className="relative flex h-2 w-2">
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-600"></span>
               </span>
-              Objectif : Master MIAGE
+              Objectif : Master en Alternance
             </div>
             
+            {/* Titre basé sur tes compétences réelles (Web + Data) */}
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-6">
-              Futur Consultant <br/>
-              <span className="text-indigo-600">Business Intelligence</span>.
+              Développeur Web <br/>
+              <span className="text-indigo-600">& Data Analyst</span>.
             </h1>
             
             <p className="text-lg text-slate-600 max-w-xl leading-relaxed mb-8">
-              Habitué à travailler dans le commerce, j'ai le sens du contact. Doté d'une grande capacité d'adaptation, je sais me montrer proactif et sérieux dans la réalisation de mes missions.
+              Habitué à travailler dans le commerce, j'ai le sens du contact. Doté d'une grande capacité d'adaptation, je sais me montrer proactif et sérieux dans la réalisation de mes missions techniques.
             </p>
             
             <div className="flex flex-wrap gap-4">
               <a href="#projects" className="bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition shadow-lg shadow-indigo-500/30 flex items-center gap-2">
-                Mes projets Data <BarChart3 size={18} />
+                Mes projets <BarChart3 size={18} />
               </a>
               <a href="/cv.pdf" className="px-6 py-3 rounded-xl font-semibold text-slate-700 border border-slate-200 hover:bg-slate-50 transition flex items-center gap-2">
                 Mon CV <Download size={18} />
