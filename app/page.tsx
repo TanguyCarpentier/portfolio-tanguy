@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, Download, Linkedin, Database, Terminal, Server, Cpu, Layers, BarChart3, LayoutDashboard, FolderKanban, X, Calculator, Package, Trophy, BrainCircuit, Network, GitBranch, Target, CheckCircle2, Heart, Dumbbell, Gamepad2, BookOpen, Crown } from 'lucide-react';// Imports des composants interactifs
+import { Mail, Download, Linkedin, Database, Terminal, Server, Cpu, Layers, BarChart3, LayoutDashboard, FolderKanban, X, Calculator, Package, Trophy, BrainCircuit, Network, GitBranch, Target, CheckCircle2, Heart, Dumbbell, Gamepad2, BookOpen, Crown, Quote } from 'lucide-react';
 import NbaPredictor from './components/NbaPredictor';
 import TennisSniper from './components/TennisSniper';
 
@@ -459,6 +459,56 @@ export default function Portfolio() {
                     ))}
                 </div>
             </div>
+            </div>
+        </div>
+
+       {/* --- BLOCK: REFERENCES (Mis à jour avec LinkedIn) --- */}
+        <div className="md:col-span-12 bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm mt-2">
+            <h3 className="text-xl font-bold text-slate-900 mb-8 flex items-center gap-2">
+                <Quote className="text-indigo-600" /> Références & Validations
+            </h3>
+
+            <div className="grid md:grid-cols-2 gap-6">
+                
+                {/* Référence 1 : Valérie Liard */}
+                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex items-start gap-4 hover:border-indigo-200 transition-colors">
+                    <div className="min-w-[48px] h-12 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-lg border border-indigo-200">
+                        VL
+                    </div>
+                    <div>
+                        <h4 className="font-bold text-slate-900 text-lg">Valérie Liard</h4>
+                        <p className="text-indigo-600 font-medium text-sm mb-2">Présidente • Association La Grange à Soie</p>
+                        <p className="text-slate-500 text-sm leading-relaxed italic">
+                            "Collaboration sur la création complète du site web de l'association."
+                        </p>
+                    </div>
+                </div>
+
+                {/* Référence 2 : Thierry Bochard (Avec LinkedIn) */}
+                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex items-start gap-4 hover:border-indigo-200 transition-colors">
+                    <div className="min-w-[48px] h-12 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-lg border border-slate-300">
+                        TB
+                    </div>
+                    <div>
+                        <div className="flex items-center gap-2">
+                            <h4 className="font-bold text-slate-900 text-lg">Thierry Bochard</h4>
+                            <a 
+                                href="https://www.linkedin.com/in/thierry-bochard-2892b625/" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-slate-400 hover:text-[#0077b5] transition-colors"
+                                title="Voir le profil LinkedIn"
+                            >
+                                <Linkedin size={18} />
+                            </a>
+                        </div>
+                        <p className="text-slate-600 font-medium text-sm mb-2">Président • Reboot-Services</p>
+                        <p className="text-slate-500 text-sm leading-relaxed italic">
+                            "Maitre de stage durant ma mission de développeur web (Refonte & CMS)."
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
 
